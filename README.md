@@ -15,7 +15,3 @@ This is my personal portfolio website designed to showcase my background, skills
 - JavaScript (Vanilla)
 - Typed.js (for animated typing text)
 
-## 📫 Contact
-You can find my contact information and social links on the website.
-
-> 🔗 Live site: *(Add GitHub Pages link here when hosted)*
