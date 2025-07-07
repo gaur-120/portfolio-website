@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(20, 17, 73);
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(77, 40, 150);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            color: rgb(17, 17, 19);
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            font-size: 1.01rem;
+        }
+
+        .left {
+            font-size: 30px;
+            color: rgb(242, 233, 233);
+        }
+
+        .first {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+        }
+
+        .first>div {
+            width: 30%;
+        }
+
+        .leftsec {
+            font-size: 3rem;
+        }
+
+        .leftsec .buttons {
+            padding: 50px 0;
+        }
+
+        .leftsec .btn {
+            padding: 12px;
+            background-color: rgb(14, 14, 82);
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .leftsec .btn:hover {
+            background-color: white;
+            color: rgb(14, 14, 82);
+            transition: all 0.3s ease;
+        }
+
+        .rightsec img {
+            width: 80%;
+        }
+
+        .purple {
+            color: beige;
+        }
+
+        #element {
+            color: aliceblue;
+        }
+
+        .secondsec {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        .secondsec h1 {
+            font-size: 1.9rem;
+        }
+
+        .secondsec .grey {
+            color: rgb(220, 208, 208);
+        }
+
+        .secondsec .ss {
+            color: azure;
+        }
+
+        .secondsec .box {
+            background: white;
+            width: 80vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+
+        .secondsec .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: whitesmoke;
+            margin: 0 130px;
+        }
+
+        .vertical-title {
+            color: azure;
+            position: relative;
+            top: 75px;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 86px;
+            width: 150px;
+            font-size: 13px;
+            color: rgb(124, 160, 160);
+        }
+
+        .image-top {
+            width: 40px;
+            position: relative;
+            top: -35px;
+            left: -9px;
+        }
+
+        .project-card {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: rgb(79, 12, 167);
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-between;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 223px;
+        }
+
+        footer .f-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        form input,
+        form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            background-color: rgb(14, 14, 82);
+            color: white;
+            cursor: pointer;
+        }
+
+        #projects,
+        #contact {
+            padding: 60px 20px;
+            background-color: rgb(30, 25, 90);
+            /* Dark blue background */
+        }
+
+        .section-heading {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 12px 25px;
+            background-color: rgb(79, 12, 167);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: rgb(99, 29, 180);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .right ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                background: rgb(77, 40, 150);
+                width: 100%;
+                text-align: center;
+            }
+
+            .right ul.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Gaurvi's Portfolio</div>
+            <div class="right">
+                <ul id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="first">
+            <div class="leftsec" data-aos="fade-right">
+                Hi, My name is <span class="purple">Gaurvi Varshney.</span>
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <a href="file:///C:/Users/Gaurvi%20Varshney/OneDrive/Desktop/MY%20RESUME.pdf" class="btn"
+                        download>Download Resume</a>
+                </div>
+            </div>
+            <div class="rightsec" data-aos="fade-left">
+                <img src="C:\Users\Gaurvi Varshney\Downloads\IMG-20240522-WA0069~2 (1).jpg" alt="Profile Photo">
+            </div>
+        </section>
+        <hr>
+        <section id="about" class="secondsec">
+            <span class="grey">What I have done so far</span>
+            <h1 class="ss">Study Completed</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img src="C:\Users\Gaurvi Varshney\OneDrive\Desktop\portfolio\pngtree-video-editing-isolated-cartoon-vector-illustrations-png-image_6275875.png"
+                        alt="" class="image-top">
+                    <div class="vertical-title">
+                        10th grade (2019-2020)
+
+                    </div>
+                    <div class="vertical-desc">
+                        Completed my high school education from St.Mary's Secondary School,Sambhal,U.P,with a score of
+                        90%.
+                    </div>
+                </div>
+                <div class="vertical">
+
+                    <img src="C:\Users\Gaurvi Varshney\OneDrive\Desktop\portfolio\pngtree-video-editing-isolated-cartoon-vector-illustrations-png-image_6275875.png"
+                        alt="" class="image-top">
+                    <div class="vertical-title">
+                        12th grade (2021-2022)
+
+                    </div>
+                    <div class="vertical-desc">
+                        Completed my intermediate education from D.P.S,Aligarh,U.P,with a score of 82%.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img src="C:\Users\Gaurvi Varshney\OneDrive\Desktop\portfolio\pngtree-video-editing-isolated-cartoon-vector-illustrations-png-image_6275875.png"
+                        alt="" class="image-top">
+                    <div class="vertical-title">
+                        B.Tech 1st year (2022-2023)
+
+                    </div>
+                    <div class="vertical-desc">
+                        Completed my B.Tech first year from JSS Academy of Technical Education,Noida,U.P with a CGPA of
+                        7.84.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img src="C:\Users\Gaurvi Varshney\OneDrive\Desktop\portfolio\pngtree-video-editing-isolated-cartoon-vector-illustrations-png-image_6275875.png"
+                        alt="" class="image-top">
+                    <div class="vertical-title">
+                        B.Tech 2nd year (2022-2023)
+
+                    </div>
+                    <div class="vertical-desc">
+                        Completed my B.Tech second year with a CGPA of 7.85.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <h2 class="section-heading">My Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>Developed a responsive personal portfolio website using HTML, CSS, and JavaScript to showcase
+                        academic background, projects, and skills. Integrated interactive features like animations,
+                        typing effects, and a contact form for enhanced user engagement.</p>
+                </div>
+                <div class="project-card">
+                    <h3>British Airways Review Dashboard</h3>
+                    <p> Developed an interactive Tableau dashboard analyzing British Airways customer reviews,
+                        visualizing sentiment
+                        trends, ratings by route and cabin class, and key factors impacting passenger satisfaction.
+                        Enabled dynamic
+                        f
+                        iltering using parameters to compare performance across different time periods and service
+                        categories.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Customer Churn Prediction System</h3>
+                    <p> Built a predictive model using a telecom dataset (7,000+ rows) to identify potential customer
+                        churn with 85
+                        percent accuracy. Improved model recall through feature engineering and grid search.</p>
+                </div>
+                <div class="project-card">
+                    <h3>GUI Calendar Application</h3>
+                    <p> Built a desktop calendar app using Python’s Tkinter library to display monthly views and
+                        navigate dates.
+                        Implemented a user-friendly interface with basic navigation controls for ease of use.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-heading">Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="f-first">
+                <h3>Gaurvi's Portfolio</h3>
+            </div>
+            <div class="f-second">
+                <ul>
+                    <li>9045275144</li>
+                </ul>
+            </div>
+            <div class="f-third">
+                <ul>
+                    <li>gaurvivarshney@gmail.com</li>
+                </ul>
+            </div>
+            <div class="f-fourth">
+                <ul>
+                    <li><i class="fab fa-instagram"></i> gaurvii_12</li>
+                </ul>
+            </div>
+        </div>
+        <div class="f-rights">Copyright © gaurviportfolio.com | All rights reserved</div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        var typed = new Typed('#element', {
+            strings: ['Data Science Student', 'Data Analyst Enthusiast'],
+            typeSpeed: 50,
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
